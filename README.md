@@ -4,7 +4,7 @@
 # Team
 Principal Investigator: Prof. Peipei Zhou, https://peipeizhou-eecs.github.io/
 
-Ph.D. Students: Jinming Zhuang (Lead), Zhuoping Yang and Shixin Ji
+Ph.D. Students: Jinming Zhuang (Student Lead), Zhuoping Yang, and Shixin Ji
 
 Faculty Collaborators: Profs. Heng Huang (Maryland), Alex Jones (Syracuse), Jingtong Hu (Pitt), and Yiyu Shi (Notre Dame)
 
