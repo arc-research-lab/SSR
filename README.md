@@ -10,8 +10,8 @@ Faculty Collaborators: Professors Heng Huang (Maryland), Alex Jones (Syracuse), 
 
 ## 🚀 Thank You for Using SSR! ! !
 ### Your support and growing engagement inspire us to continually improve and enhance the project.
-+ Total Views since 02/26/2025: <!--VIEWS-->408<!--/VIEWS-->
-+ Total Downloads since 02/26/2025: <!--CLONES-->192<!--/CLONES-->
++ Total Views since 02/26/2025: <!--VIEWS-->415<!--/VIEWS-->
++ Total Downloads since 02/26/2025: <!--CLONES-->195<!--/CLONES-->
 <img src="./plot/SSR_traffic_plot.png" width="600" />
 
 ## ACM/IEEE Reference Format
