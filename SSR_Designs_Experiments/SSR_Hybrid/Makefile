@@ -16,24 +16,23 @@ TARGET   = hw
 MODE	 = linux
 HOST_ARCH = aarch64
 PRE_BUILT = 0
-PLATFORM_REPO_PATHS=/opt/xilinx/platforms
-PLATFORM = ${PLATFORM_REPO_PATHS}/xilinx_vck190_base_202110_1/xilinx_vck190_base_202110_1.xpfm
+PLATFORM_REPO_PATHS=/your_path/Vitis/2023.2/base_platforms
+PLATFORM = ${PLATFORM_REPO_PATHS}/xilinx_vck190_base_202320_1/xilinx_vck190_base_202320_1.xpfm
 XCLBIN   = vck190_aie_base_graph_${TARGET}.xclbin
 XSA	 = vck190_aie_base_graph_${TARGET}.xsa
 XPFM	 = vck190_xpfm
 HOST_EXE = hostexe
 HOST_SRCS := ./host/host.cpp
-SYSROOT_PATH = /opt/petalinux/2021.1
+SYSROOT_PATH = /your_path/petalinux/2023.2
 SYSROOT = ${SYSROOT_PATH}/sysroots/cortexa72-cortexa53-xilinx-linux
 SDKTARGETSYSROOT = ${SYSROOT}
-EDGE_COMMON_SW_PATH = /home/jinming/Downloads
-EDGE_COMMON_SW= ${EDGE_COMMON_SW_PATH}/xilinx-versal-common-v2021.1
+EDGE_COMMON_SW= /your_path/xilinx-versal-common-v2023.2
 ROOTFS=${EDGE_COMMON_SW}/rootfs.ext4
 IMAGE=${EDGE_COMMON_SW}/Image
 
 FINAL_XCLBIN=mm_${TARGET}.xclbin
-TEMP_DIR := ./_x.$(TARGET).xilinx_vck190_base_202110_1
-BUILD_DIR := ./build_dir.$(TARGET).xilinx_vck190_base_202110_1
+TEMP_DIR := ./_x.$(TARGET).xilinx_vck190_base_202320_1
+BUILD_DIR := ./build_dir.$(TARGET).xilinx_vck190_base_202320_1
 
 KERNEL_XO := $(TEMP_DIR)/pl_engine.xo
 GRAPH   := aie/aie_top_all.cpp
@@ -56,7 +55,7 @@ RMDIR = rm -rf
 
 CUR_DIR := $(patsubst %/,%,$(dir $(MK_PATH)))
 
-BINARY_CONTAINERS += $(BUILD_DIR)/${XCLBIN}
+BINARY_CONTAINERS += $(BUILD_DIR)/${XSA}
 VCC      = v++
 VPP_XO_FLAGS += -c --platform $(PLATFORM) --save-temps --optimize 2 -g
 VPP_XO_FLAGS += --hls.jobs 8
@@ -146,7 +145,7 @@ $(TEMP_DIR)/pl_engine.xo: kernel/pl_engine.cpp kernel/pl_engine.hpp
 
 
 build: $(BINARY_CONTAINERS)
-$(BUILD_DIR)/${XCLBIN}: ${KERNEL_XO} ${LIBADF}
+$(BUILD_DIR)/${XSA}: ${KERNEL_XO} ${LIBADF}
 	mkdir -p $(BUILD_DIR)
 	v++ -l $(CLFLAGS) --temp_dir $(BUILD_DIR) $(LDCLFLAGS) -o'$@' $(+) | tee $(BUILD_DIR)/hpc_xclbin.log
 
